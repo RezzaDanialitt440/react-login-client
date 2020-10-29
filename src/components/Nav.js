@@ -1,8 +1,20 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import {  AppBar, Toolbar, Button, Typography  } from '@material-ui/core'
 
 const Nav = () => {
+
+  
+  //hide or show Users page link
+  const isAuthenticated = true
+
+
+  useEffect(() => {
+    console.log("OnInit");
+    
+  }, []);
+
+  // setIsAuthenticated(true)
 
   const navStyle = {
     textDecoration: 'none'
@@ -26,6 +38,13 @@ const Nav = () => {
                 <Typography variant="h6">Sign Up</Typography>
             </Button>
           </Link>
+          {isAuthenticated && 
+          (<Link style={navStyle} to="/users">
+            <Button size="large">
+                <Typography variant="h6">Users</Typography>
+            </Button>
+          </Link>)}
+
         </ul>
         </Toolbar>
       </AppBar>

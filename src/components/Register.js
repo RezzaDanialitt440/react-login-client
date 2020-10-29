@@ -28,7 +28,7 @@ const { register, handleSubmit, reset } = useForm();
     setOpen(false);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit = (data) => {
     axios
       .post("http://localhost:4000/api/auth/register", data)
       .then((resp) => {
