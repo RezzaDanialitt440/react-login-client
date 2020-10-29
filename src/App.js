@@ -8,10 +8,12 @@ import LandingPage from './components/Landing'
 import NotFoundPage from './components/404'
 import UserPage from './components/User'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import  {Paper} from '@material-ui/core'
 
 const App = () => {
   return (
     <Router>
+      <Paper elevation={0}>
       <div className="App">
         <Nav />
         <Switch>
@@ -22,6 +24,7 @@ const App = () => {
           <Route path="*" component={NotFoundPage}/>
         </Switch>
       </div>
+      </Paper>
     </Router>
   );
 }
