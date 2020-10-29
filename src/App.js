@@ -1,12 +1,29 @@
 import React from 'react';
-import './index.css';
+import './App.css';
+
+import Nav from './components/Nav'
+import LoginPage from './components/Login'
+import RegisterPage from './components/Register'
+import LandingPage from './components/Landing'
+import NotFoundPage from './components/404'
+import UserPage from './components/User'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
   return (
-    <div> 
-      <h1> Digi Assessment</h1>
-    </div>
-   );
+    <Router>
+      <div className="App">
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/sign-up" component={RegisterPage} />
+          <Route path="/users" component={UserPage} />
+          <Route path="*" component={NotFoundPage}/>
+        </Switch>
+      </div>
+    </Router>
+  );
 }
  
 export default App;
