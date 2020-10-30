@@ -16,6 +16,7 @@ const App = () => {
       <Paper elevation={0}>
       <div className="App">
         <Nav />
+        <div className="app-container">
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/login" component={LoginPage} />
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/users" component={UserPage} />
           <Route path="*" component={NotFoundPage}/>
         </Switch>
+        </div>
       </div>
       </Paper>
     </Router>
