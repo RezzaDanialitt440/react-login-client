@@ -3,9 +3,10 @@ import axios from 'axios';
 //Setting default interceptor
 const setAuthToken = token => {
     if(token) {
-        axios.defaults.headers.common['x-auth-token'] = token;
+        const bearerToken = 'Bearer ' + token
+        axios.defaults.headers.common['Authorization'] = bearerToken;
     } else {
-        delete axios.defaults.headers.common['x-auth-token'];
+        delete axios.defaults.headers.common['Authorization'];
     }
 }
 

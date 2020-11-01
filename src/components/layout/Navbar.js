@@ -29,10 +29,10 @@ const Navbar = ({ auth: {isAuthenticated, loading}, logout}) => {
   )
 
   return (
-      <nav className="navbar bg-dark">
+      <nav className="navbar">
         <h1>
           <Link to='/'>
-            <i className="fas fa-code"></i> DevConnector
+            <i className="fas fa-code"></i> MERN 
           </Link>
         </h1>
       { !loading && (<> {isAuthenticated ? authLinks : guestLinks} </>) }

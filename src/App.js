@@ -1,17 +1,9 @@
 import React, { useEffect } from 'react';
 import './App.css';
 
-import NotFoundPage from './components/404'
-import UserPage from './components/User'
-
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
-import Login from './components/auth/Login'
-import Register from './components/auth/Register'
-import Dashboard from './components/layout/Dashboard'
-import Alert from './components/layout/Alert'
-import PrivateRoute from './components/routing/PrivateRoute'
-
+import Routes from './components/routing/Routes'
 
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -40,16 +32,12 @@ const App = () => {
       <Router>
         <>
           <Navbar />
+          <Switch>
           <Route path="/" exact component={Landing} />
-          <section className="container">
-            <Alert/>
-            <Switch>
-              <Route path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <PrivateRoute path="/dashboard" component={Dashboard} />
-              <Route path="*" component={NotFoundPage} />
-            </Switch>
-          </section>
+          <Route component={Routes}/>
+          </Switch>
+          
+          
         </>
       </Router>
     </Provider>
