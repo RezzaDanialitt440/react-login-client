@@ -1,31 +1,46 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 
-import Nav from './components/Nav'
-import LoginPage from './components/Login'
-import RegisterPage from './components/Register'
-import LandingPage from './components/Landing'
-import NotFoundPage from './components/404'
-import UserPage from './components/User'
+import Navbar from './components/layout/Navbar'
+import Landing from './components/layout/Landing'
+import Routes from './components/routing/Routes'
+
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import  {Paper} from '@material-ui/core'
+
+//redux
+import {Provider} from 'react-redux'
+import store from './store'
+import { loadUser } from './actions/auth'
+import setAuthToken from './utils/setAuthToken'
+
+
+if(localStorage.token){
+  setAuthToken(localStorage.token)
+}
+
 
 const App = () => {
+
+  useEffect(() => {
+    store.dispatch(loadUser())
+  },[])
+
+
   return (
-    <Router>
-      <Paper elevation={0}>
-      <div className="App">
-        <Nav />
-        <Switch>
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/login" component={LoginPage} />
-          <Route path="/sign-up" component={RegisterPage} />
-          <Route path="/users" component={UserPage} />
-          <Route path="*" component={NotFoundPage}/>
-        </Switch>
-      </div>
-      </Paper>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <>
+          <Navbar />
+          <Switch>
+          <Route path="/" exact component={Landing} />
+          <Route component={Routes}/>
+          </Switch>
+          
+          
+        </>
+      </Router>
+    </Provider>
   );
 }
  
