@@ -3,8 +3,6 @@ import {
   Card,
   CardContent,
   Typography,
-  Divider,
-  CardMedia,
 } from "@material-ui/core";
 
 export const Landing = () => {
@@ -19,7 +17,7 @@ export const Landing = () => {
                 Technology Stack
               </Typography>
               <div style={{marginTop: 10}}>
-              <img src="/images/mern.jpg" height="300px" />
+              <img alt="mern" src="/images/mern.jpg" height="300px" />
               <Typography variant="body1" color="textSecondary" component="p">
                 The technologies I use to complete this task are: Client side
                 of the application using React, The Server side was developed

@@ -3,7 +3,7 @@ import {TextField, Container} from "@material-ui/core";
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { Autocomplete } from '@material-ui/lab';
-import axios from 'axios'
+import axiosInstance from '../../utils/axios'
 
 
 const Dashboard = () => {
@@ -28,7 +28,7 @@ const Dashboard = () => {
         const token = localStorage.getItem('token')
         const bearerToken = 'Bearer ' + token
 
-        axios.get('/api/users/retrieve-all',{
+        axiosInstance.get('/api/users/retrieve-all',{
           headers: {
             Authorization: bearerToken,
           }
